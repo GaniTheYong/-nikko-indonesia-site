@@ -144,18 +144,12 @@ li {
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 92vh;
-  padding: 8rem 0 4rem;
+  min-height: 560px;
+  padding: 9rem 0 3.25rem;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: auto -8% 8% auto;
-  width: min(42vw, 620px);
-  aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(240, 174, 61, 0.38), transparent 68%);
-  filter: blur(12px);
+  content: none;
 }
 
 .hero::after {
@@ -163,13 +157,29 @@ li {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(110deg, rgba(43, 22, 13, 0.75) 0%, rgba(43, 22, 13, 0.36) 45%, rgba(43, 22, 13, 0.08) 78%),
-    linear-gradient(180deg, rgba(255, 248, 239, 0) 0%, rgba(255, 248, 239, 0.35) 100%);
+    linear-gradient(90deg, rgba(32, 14, 8, 0.72) 0%, rgba(32, 14, 8, 0.42) 32%, rgba(32, 14, 8, 0.14) 62%, rgba(32, 14, 8, 0.24) 100%),
+    linear-gradient(180deg, rgba(255, 248, 239, 0) 0%, rgba(255, 248, 239, 0.18) 100%);
 }
 
 .hero-media {
   position: absolute;
   inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.hero-slice {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 8, 4, 0.12), rgba(16, 8, 4, 0.36));
 }
 
 .hero-media img {
@@ -182,14 +192,10 @@ li {
 .hero-grid {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1.2fr 0.7fr;
-  gap: 1.4rem;
-  align-items: end;
+  display: block;
 }
 
 .hero-copy,
-.hero-card,
 .panel,
 .food-card,
 .cta-panel {
@@ -198,10 +204,12 @@ li {
 }
 
 .hero-copy {
-  max-width: 680px;
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(45, 21, 10, 0.36), rgba(45, 21, 10, 0.58));
+  max-width: 620px;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
   color: white;
 }
 
@@ -224,14 +232,14 @@ li {
 }
 
 .hero h1 {
-  font-size: clamp(3.4rem, 8vw, 6.8rem);
+  font-size: clamp(3rem, 7vw, 5.3rem);
 }
 
 .hero-text {
   margin: 1rem 0 0;
-  max-width: 34rem;
+  max-width: 24rem;
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .hero-actions,
@@ -242,7 +250,7 @@ li {
 
 .hero-actions {
   flex-wrap: wrap;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .button,
@@ -275,27 +283,6 @@ li {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.24);
   box-shadow: none;
-}
-
-.hero-card {
-  padding: 1.6rem;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 250, 242, 0.82);
-  backdrop-filter: blur(10px);
-}
-
-.hero-points {
-  flex-direction: column;
-}
-
-.hero-points div + div {
-  padding-top: 1rem;
-  border-top: 1px solid rgba(95, 53, 28, 0.12);
-}
-
-.hero-points strong {
-  display: block;
-  font-size: 1.05rem;
 }
 
 .hero-points span,
@@ -513,8 +500,8 @@ li {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 7rem;
+    min-height: 480px;
+    padding-top: 8rem;
   }
 
   .section-heading {
@@ -558,7 +545,6 @@ li {
   }
 
   .hero-copy,
-  .hero-card,
   .location-copy,
   .cta-panel,
   .food-card div {
@@ -566,7 +552,14 @@ li {
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 15vw, 4.5rem);
+    font-size: clamp(2.8rem, 14vw, 4.3rem);
+  }
+
+  .hero-media {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 8px;
   }
 
   .feature-image-wrap {
