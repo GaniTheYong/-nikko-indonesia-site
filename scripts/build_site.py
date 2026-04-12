@@ -293,8 +293,40 @@ def nav_html(current_path: str) -> str:
     items = []
     for label, href in NAV_ITEMS:
         active = ' class="is-active"' if href == current_path else ""
-        items.append(f'<a href="{href}"{active}>{label}</a>')
+        items.append(f'<a href="{relative_url(current_path, href)}"{active}>{label}</a>')
     return "".join(items)
+
+
+def relative_url(current_path: str, target_path: str) -> str:
+    if current_path == target_path:
+        return "./"
+
+    current_parts = [part for part in current_path.strip("/").split("/") if part]
+    target_parts = [part for part in target_path.strip("/").split("/") if part]
+
+    if current_path == "/":
+        current_dir = []
+    else:
+        current_dir = current_parts
+
+    common = 0
+    for left, right in zip(current_dir, target_parts):
+        if left != right:
+            break
+        common += 1
+
+    up = [".."] * (len(current_dir) - common)
+    down = target_parts[common:]
+    parts = up + down
+
+    if not parts:
+        return "./"
+
+    return "/".join(parts) + "/"
+
+
+def asset_url(current_path: str, asset_path: str) -> str:
+    return relative_url(current_path, "/") + asset_path.lstrip("/")
 
 
 def layout(title: str, current_path: str, hero_title: str, hero_text: str, body: str) -> str:
@@ -308,7 +340,7 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="{asset_url(current_path, 'assets/css/site.css')}">
 </head>
 <body>
   <header class="site-header">
@@ -319,8 +351,8 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
       </div>
     </div>
     <div class="shell nav-wrap">
-      <a class="brand" href="/">
-        <img src="/assets/images/Logo-Nikko.png" alt="Nikko Indonesia logo">
+      <a class="brand" href="{relative_url(current_path, '/')}">
+        <img src="{asset_url(current_path, 'assets/images/Logo-Nikko.png')}" alt="Nikko Indonesia logo">
         <div>
           <strong>{SITE_NAME}</strong>
           <span>{TAGLINE}</span>
@@ -334,7 +366,7 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
   </header>
 
   <section class="page-hero">
-    <img src="/assets/images/cropped-Nikkoheader.jpg" alt="" aria-hidden="true">
+    <img src="{asset_url(current_path, 'assets/images/cropped-Nikkoheader.jpg')}" alt="" aria-hidden="true">
     <div class="shell hero-inner">
       <p class="eyebrow">PT. Nikko Indonesia</p>
       <h1>{html.escape(hero_title)}</h1>
@@ -360,9 +392,9 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
       </div>
       <div>
         <h3>Quick Links</h3>
-        <p><a href="/laboratory-equipment/">Laboratory Equipment</a></p>
-        <p><a href="/chemicals-and-life-science/">Chemicals and Life Science</a></p>
-        <p><a href="/scientific/">Scientific</a></p>
+        <p><a href="{relative_url(current_path, '/laboratory-equipment/')}">Laboratory Equipment</a></p>
+        <p><a href="{relative_url(current_path, '/chemicals-and-life-science/')}">Chemicals and Life Science</a></p>
+        <p><a href="{relative_url(current_path, '/scientific/')}">Scientific</a></p>
       </div>
     </div>
     <div class="shell footer-bottom">
@@ -370,23 +402,23 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
     </div>
   </footer>
 
-  <script src="/assets/js/site.js"></script>
+  <script src="{asset_url(current_path, 'assets/js/site.js')}"></script>
 </body>
 </html>
 """
 
 
-def product_cards(limit: int | None = None) -> str:
+def product_cards(current_path: str, limit: int | None = None) -> str:
     cards = []
     for name, href, image, summary in PRODUCTS[:limit]:
         cards.append(
             f"""
             <article class="product-card">
-              <img src="/assets/images/{image}" alt="{html.escape(name)}">
+              <img src="{asset_url(current_path, f'assets/images/{image}')}" alt="{html.escape(name)}">
               <div>
                 <h3>{html.escape(name)}</h3>
                 <p>{html.escape(summary)}</p>
-                <a href="{href}">View details</a>
+                <a href="{relative_url(current_path, href)}">View details</a>
               </div>
             </article>
             """
@@ -395,6 +427,7 @@ def product_cards(limit: int | None = None) -> str:
 
 
 def home_body() -> str:
+    cards = product_cards("/", limit=6)
     return f"""
     <section class="grid-intro">
       <article class="panel lead-panel">
@@ -402,8 +435,8 @@ def home_body() -> str:
         <h2>Reliable supply for laboratory equipment, chemicals, and scientific products.</h2>
         <p>PT. Nikko Indonesia consistently applies a documented quality management system and continues improving service quality so our products can be proven objectively.</p>
         <div class="inline-actions">
-          <a class="button" href="/contact-us/">Contact us</a>
-          <a class="button button-secondary" href="/laboratory-equipment/">Explore products</a>
+          <a class="button" href="{relative_url('/', '/contact-us/')}">Contact us</a>
+          <a class="button button-secondary" href="{relative_url('/', '/laboratory-equipment/')}">Explore products</a>
         </div>
       </article>
       <aside class="panel stats-panel">
@@ -427,10 +460,10 @@ def home_body() -> str:
         <p class="eyebrow">Featured Products</p>
         <h2>Main equipment highlights from the current website</h2>
       </div>
-      <a href="/laboratory-equipment/">See all equipment</a>
+      <a href="{relative_url('/', '/laboratory-equipment/')}">See all equipment</a>
     </section>
     <section class="product-grid">
-      {product_cards(limit=6)}
+      {cards}
     </section>
 
     <section class="grid-intro split-section">
@@ -447,15 +480,15 @@ def home_body() -> str:
     </section>
 
     <section class="category-strip">
-      <a class="category-card" href="/laboratory-equipment/">
+      <a class="category-card" href="{relative_url('/', '/laboratory-equipment/')}">
         <span>Laboratory Equipment</span>
         <strong>11 major product pages</strong>
       </a>
-      <a class="category-card" href="/chemicals-and-life-science/">
+      <a class="category-card" href="{relative_url('/', '/chemicals-and-life-science/')}">
         <span>Chemicals and Life Science</span>
         <strong>Core supply categories</strong>
       </a>
-      <a class="category-card" href="/scientific/">
+      <a class="category-card" href="{relative_url('/', '/scientific/')}">
         <span>Scientific</span>
         <strong>Glassware, tools, plastic, porcelain</strong>
       </a>
@@ -464,6 +497,8 @@ def home_body() -> str:
 
 
 def article_body(title: str, content: str, current_path: str) -> str:
+    content = content.replace('src="/assets/', f'src="{asset_url(current_path, "assets/")}')
+    content = content.replace('href="/assets/', f'href="{asset_url(current_path, "assets/")}')
     sidebar = f"""
     <aside class="side-panel">
       <div class="panel sticky-panel">
@@ -475,13 +510,14 @@ def article_body(title: str, content: str, current_path: str) -> str:
           <li><a href="tel:+62778466373">{PHONE}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
         </ul>
-        <a class="button" href="/contact-us/">Go to contact page</a>
+        <a class="button" href="{relative_url(current_path, '/contact-us/')}">Go to contact page</a>
       </div>
     </aside>
     """
 
     extra = ""
     if current_path == "/laboratory-equipment/":
+        cards = product_cards(current_path)
         extra = f"""
         <section class="section-heading compact">
           <div>
@@ -490,7 +526,7 @@ def article_body(title: str, content: str, current_path: str) -> str:
           </div>
         </section>
         <section class="product-grid">
-          {product_cards()}
+          {cards}
         </section>
         """
 
