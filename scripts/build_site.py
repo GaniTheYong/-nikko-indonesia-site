@@ -120,7 +120,7 @@ PAGE_FILES = {
 }
 
 HERO_TEXT = {
-    "/": "Rebuilt from your existing website materials for fast static hosting while keeping the same domain.",
+    "/": "",
     "/about-us/": "A trusted partner for laboratory equipment, chemicals, and scientific supplies in Batam and surrounding areas.",
     "/contact-us/": "Connect with our team for product information, quotations, and business inquiries.",
     "/chemicals-and-life-science/": "Supporting laboratories and industry with essential chemicals and life science supply categories.",
@@ -330,6 +330,7 @@ def asset_url(current_path: str, asset_path: str) -> str:
 
 
 def layout(title: str, current_path: str, hero_title: str, hero_text: str, body: str) -> str:
+    hero_paragraph = f'      <p>{html.escape(hero_text)}</p>\n' if hero_text else ""
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -370,8 +371,7 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
     <div class="shell hero-inner">
       <p class="eyebrow">PT. Nikko Indonesia</p>
       <h1>{html.escape(hero_title)}</h1>
-      <p>{html.escape(hero_text)}</p>
-    </div>
+{hero_paragraph}    </div>
   </section>
 
   <main class="shell page-body">
