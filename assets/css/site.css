@@ -428,6 +428,75 @@ li {
   padding-left: 1.1rem;
 }
 
+.content-layout-wide {
+  display: block;
+}
+
+.contact-form-panel {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(208, 191, 162, 0.7);
+}
+
+.contact-form-panel h3 {
+  margin: 0 0 1rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-form span {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(110, 87, 50, 0.18);
+  border-radius: 18px;
+  background: #fff;
+  padding: 0.95rem 1rem;
+  font: inherit;
+  color: var(--text);
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(12, 124, 148, 0.48);
+  box-shadow: 0 0 0 4px rgba(12, 124, 148, 0.1);
+}
+
+.contact-form textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+.contact-form .button {
+  justify-self: start;
+}
+
+.contact-form-note {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .location-map {
   overflow: hidden;
   display: block;
@@ -495,6 +564,7 @@ li {
   .feature-grid,
   .location-section,
   .card-grid-three,
+  .contact-form-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }

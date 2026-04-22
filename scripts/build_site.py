@@ -18,6 +18,10 @@ SITE_NAME = "Nikko Indonesia"
 TAGLINE = "Chemicals and Laboratory Equipment"
 PHONE = "+62-778-466373, +62-778-466374"
 EMAIL = "yana@nikko-indonesia.co.id"
+ADMIN_EMAIL = "admin@nikko-indonesia.co.id"
+WHATSAPP = "+62812-7860-2709"
+ADMIN_EMAIL = "admin@nikko-indonesia.co.id"
+WHATSAPP = "+62812-7860-2709"
 ADDRESS = "Kara Industrial Park Blok A No.50 A, Batam - Indonesia, 29463"
 
 NAV_ITEMS = [
@@ -137,11 +141,37 @@ CONTENT_OVERRIDES = {
     """,
     "/contact-us/": """
     <h2>Get in Touch</h2>
-    <p>For product information, pricing inquiries, and further assistance, please contact PT. Nikko Indonesia through the details below.</p>
+    <p>For product information, pricing inquiries, and further assistance, please contact PT. Nikko Indonesia through the details below or use the contact form.</p>
     <p><strong>Address</strong><br>Kara Industrial Park Blok A No.50 A<br>Batam - Indonesia, 29463</p>
-    <p><strong>Phone</strong><br><a href="tel:+62778466373">+62-778-466373</a>, <a href="tel:+62778466374">+62-778-466374</a></p>
-    <p><strong>Email</strong><br><a href="mailto:yana@nikko-indonesia.co.id">yana@nikko-indonesia.co.id</a></p>
+    <p><strong>Phone</strong><br><a href="tel:+62778466373">+62-778-466373</a>, <a href="tel:+62778466374">+62-778-466374</a><br>WhatsApp Office: <a href="https://wa.me/6281278602709">+62812-7860-2709</a></p>
+    <p><strong>Email</strong><br><a href="mailto:admin@nikko-indonesia.co.id">admin@nikko-indonesia.co.id</a><br><a href="mailto:yana@nikko-indonesia.co.id">yana@nikko-indonesia.co.id</a></p>
     <p>We welcome inquiries related to laboratory equipment, chemicals, and scientific products.</p>
+    <section class="contact-form-panel">
+      <p class="eyebrow">Contact Form</p>
+      <h3>Send Message / Mengirim Pesan</h3>
+      <form class="contact-form" id="contact-form">
+        <div class="contact-form-grid">
+          <label>
+            <span>Name / Nama</span>
+            <input type="text" name="name" placeholder="Name / Nama" required>
+          </label>
+          <label>
+            <span>E-mail / Surel</span>
+            <input type="email" name="email" placeholder="E-mail / Surel" required>
+          </label>
+          <label>
+            <span>Phone / Telepon</span>
+            <input type="text" name="phone" placeholder="Phone / Telepon">
+          </label>
+        </div>
+        <label class="contact-form-message">
+          <span>Message / Pertanyaan Maupun Komentar</span>
+          <textarea name="message" rows="8" placeholder="Message / Pertanyaan Maupun Komentar" required></textarea>
+        </label>
+        <button class="button" type="submit">Send Message / Mengirim Pesan</button>
+      </form>
+      <p class="contact-form-note">Submitting this form opens your email app with a draft addressed to admin@nikko-indonesia.co.id and yana@nikko-indonesia.co.id.</p>
+    </section>
     """,
     "/chemicals-and-life-science/": """
     <h2>Chemicals and Life Science</h2>
@@ -388,6 +418,8 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
       <div>
         <h3>Contact</h3>
         <p><a href="tel:+62778466373">{PHONE}</a></p>
+        <p>WhatsApp Office: <a href="https://wa.me/6281278602709">{WHATSAPP}</a></p>
+        <p><a href="mailto:{ADMIN_EMAIL}">{ADMIN_EMAIL}</a></p>
         <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       </div>
       <div>
@@ -499,6 +531,18 @@ def home_body() -> str:
 def article_body(title: str, content: str, current_path: str) -> str:
     content = content.replace('src="/assets/', f'src="{asset_url(current_path, "assets/")}')
     content = content.replace('href="/assets/', f'href="{asset_url(current_path, "assets/")}')
+
+    if current_path == "/contact-us/":
+        return f"""
+    <div class="content-layout content-layout-wide">
+      <article class="panel article-panel">
+        <div class="prose">
+          {content}
+        </div>
+      </article>
+    </div>
+    """
+
     sidebar = f"""
     <aside class="side-panel">
       <div class="panel sticky-panel">
@@ -508,6 +552,8 @@ def article_body(title: str, content: str, current_path: str) -> str:
         <ul class="contact-list">
           <li>{ADDRESS}</li>
           <li><a href="tel:+62778466373">{PHONE}</a></li>
+          <li><a href="https://wa.me/6281278602709">{WHATSAPP}</a></li>
+          <li><a href="mailto:{ADMIN_EMAIL}">{ADMIN_EMAIL}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
         </ul>
         <a class="button" href="{relative_url(current_path, '/contact-us/')}">Go to contact page</a>
