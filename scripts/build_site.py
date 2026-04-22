@@ -185,7 +185,39 @@ CONTENT_OVERRIDES = {
       <li>Laboratory equipment</li>
       <li>Pharmaceutical chemical solutions</li>
       <li>Laboratory essentials</li>
+      <li>Reagent and Solvent Products</li>
+      <li>Chemicals for Production</li>
+      <li>Water Treatment Chemical</li>
     </ul>
+    <section class="brand-offer-section">
+      <h3>Brand That We Offer</h3>
+      <div class="brand-offer-grid">
+        <article class="brand-offer-card">
+          <img src="/assets/images/merck.jpg" alt="Merck logo">
+          <p>Merck Millipore &amp; Sigma Aldrich</p>
+        </article>
+        <article class="brand-offer-card">
+          <img src="/assets/images/hanna-instrument.png" alt="Hanna Instrument logo">
+          <p>Hanna Instrument</p>
+        </article>
+        <article class="brand-offer-card">
+          <img src="/assets/images/hach.jpg" alt="Hach logo">
+          <p>Hach</p>
+        </article>
+        <article class="brand-offer-card">
+          <img src="/assets/images/thermo-fisher.jpg" alt="Thermo Fisher logo">
+          <p>Thermo Fisher</p>
+        </article>
+        <article class="brand-offer-card">
+          <img src="/assets/images/decon-labs.png" alt="Decon Labs logo">
+          <p>Decon</p>
+        </article>
+        <article class="brand-offer-card brand-offer-card-text">
+          <div class="brand-offer-text-logo">ND</div>
+          <p>National Diagnostic</p>
+        </article>
+      </div>
+    </section>
     <p>Please contact us if you would like more information on availability and suitable products for your application.</p>
     """,
     "/scientific/": """
@@ -531,6 +563,7 @@ def home_body() -> str:
 def article_body(title: str, content: str, current_path: str) -> str:
     content = content.replace('src="/assets/', f'src="{asset_url(current_path, "assets/")}')
     content = content.replace('href="/assets/', f'href="{asset_url(current_path, "assets/")}')
+    content = content.replace('src="/assets/images/', f'src="{asset_url(current_path, "assets/images/")}')
 
     if current_path == "/contact-us/":
         return f"""
