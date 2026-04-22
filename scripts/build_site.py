@@ -291,6 +291,14 @@ CONTENT_OVERRIDES = {
       <li>Isotherm® Forced Convection Laboratory Ovens</li>
       <li>Esco HP Series Laboratory Refrigerators</li>
       <li>Airstream® Polymerase Chain Reaction Cabinets</li>
+      <li>Vortex Mixer</li>
+      <li>Pipettor</li>
+      <li>Refrigerator</li>
+      <li>Spectrophotometer</li>
+      <li>Particle Counter</li>
+      <li>Bio Safety Cabinet</li>
+      <li>Flammable Cabinet</li>
+      <li>Digital Balance</li>
     </ul>
     <p>Browse the detail pages below for product overviews and key features.</p>
     """,
