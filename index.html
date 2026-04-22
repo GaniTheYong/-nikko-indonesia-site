@@ -1,197 +1,192 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mie Tarempa | Makanan Khas Tarempa - Anambas</title>
-  <meta
-    name="description"
-    content="Website statis Mie Tarempa untuk GitHub Pages, menampilkan menu khas Tarempa, informasi order WhatsApp, dan lokasi cabang."
-  >
+  <title>Nikko Indonesia | Nikko Indonesia</title>
+  <meta name="description" content="Nikko Indonesia supplies laboratory equipment, chemicals, and scientific products for industrial and research needs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/site.css">
 </head>
 <body>
   <header class="site-header">
+    <div class="topbar">
+      <div class="shell">
+        <span>Chemicals and Laboratory Equipment</span>
+        <a href="mailto:yana@nikko-indonesia.co.id">yana@nikko-indonesia.co.id</a>
+      </div>
+    </div>
     <div class="shell nav-wrap">
-      <a class="brand" href="./" aria-label="Mie Tarempa">
-        <img src="./assets/images/mietarempa-logo.jpg" alt="Logo Mie Tarempa">
+      <a class="brand" href="./">
+        <img src="./assets/images/Logo-Nikko.png" alt="Nikko Indonesia logo">
         <div>
-          <strong>Mie Tarempa</strong>
-          <span>Makanan khas Tarempa - Anambas</span>
+          <strong>Nikko Indonesia</strong>
+          <span>Chemicals and Laboratory Equipment</span>
         </div>
       </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        Menu
-      </button>
-
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav id="site-nav" class="site-nav">
-        <a href="#beranda">Beranda</a>
-        <a href="#menu">Menu</a>
-        <a href="#oleh-oleh">Oleh-oleh</a>
-        <a href="#lokasi">Lokasi</a>
-        <a href="#order">Order</a>
+        <a href="./" class="is-active">Home</a><a href="laboratory-equipment/">Laboratory Equipment</a><a href="chemicals-and-life-science/">Chemicals and Life Science</a><a href="scientific/">Scientific</a><a href="about-us/">About Us</a><a href="contact-us/">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section id="beranda" class="hero">
-      <div class="hero-media">
-        <div class="hero-slice">
-          <img src="./assets/images/mie-tarempa-kering.jpg" alt="Mie Tarempa kering">
-        </div>
-        <div class="hero-slice">
-          <img src="./assets/images/lempa-terempak.jpg" alt="Lempa Terempa'k">
-        </div>
-        <div class="hero-slice">
-          <img src="./assets/images/sate-terempak.jpg" alt="Sate Terempa'k">
-        </div>
-        <div class="hero-slice">
-          <img src="./assets/images/mie-tarempa-kuah.jpg" alt="Mie Tarempa kuah">
-        </div>
-      </div>
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Rumah Makan</p>
-          <h1>Mie Tarempa</h1>
-          <p class="hero-text">Khas makanan Tarempa - Anambas.</p>
-          <div class="hero-actions">
-            <a class="button" href="https://wa.me/628117776800?text=Halo%20Mie%20Tarempa,%20saya%20mau" target="_blank" rel="noreferrer">Order via WhatsApp</a>
-            <a class="button button-secondary" href="#menu">Lihat Menu</a>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="page-hero">
+    <img src="./assets/images/cropped-Nikkoheader.jpg" alt="" aria-hidden="true">
+    <div class="shell hero-inner">
+      <p class="eyebrow">PT. Nikko Indonesia</p>
+      <h1>Chemicals and Laboratory Equipment</h1>
+    </div>
+  </section>
 
-    <section id="menu" class="section shell">
-      <div class="section-heading">
+  <main class="shell page-body">
+    
+    <section class="grid-intro">
+      <article class="panel lead-panel">
+        <p class="eyebrow">Laboratory Supplier in Indonesia</p>
+        <h2>Reliable supply for laboratory equipment, chemicals, and scientific products.</h2>
+        <p>PT. Nikko Indonesia consistently applies a documented quality management system and continues improving service quality so our products can be proven objectively.</p>
+        <div class="inline-actions">
+          <a class="button" href="contact-us/">Contact us</a>
+          <a class="button button-secondary" href="laboratory-equipment/">Explore products</a>
+        </div>
+      </article>
+      <aside class="panel stats-panel">
         <div>
-          <p class="eyebrow">Resep Tradisional</p>
-          <h2>Menu khas yang jadi identitas Mie Tarempa</h2>
+          <strong>Since 2001</strong>
+          <span>Serving customers in Batam and surrounding areas.</span>
         </div>
-        <p>Tiga sajian utama yang tampil di website asli kini dirapikan menjadi landing page statis yang lebih ringan.</p>
-      </div>
-
-      <div class="card-grid card-grid-three">
-        <article class="food-card">
-          <img src="./assets/images/mie-tarempa-kering.jpg" alt="Mie Terempa'k">
-          <div>
-            <h3>Mie Terempa'k</h3>
-            <p>Versi klasik dengan karakter bumbu yang kuat dan tampilan yang langsung dikenali pelanggan lama.</p>
-          </div>
-        </article>
-
-        <article class="food-card">
-          <img src="./assets/images/nasi-dagang.jpg" alt="Nasi Dagang">
-          <div>
-            <h3>Nasi Dagang</h3>
-            <p>Menu pendamping yang ikut ditampilkan pada situs asli sebagai bagian dari resep tradisional pilihan.</p>
-          </div>
-        </article>
-
-        <article class="food-card">
-          <img src="./assets/images/mie-tarempa-kuah.jpg" alt="Mie Terempa'k Kuah">
-          <div>
-            <h3>Mie Terempa'k Kuah</h3>
-            <p>Alternatif berkuah untuk penikmat rasa hangat dengan kekayaan rempah khas Tarempa.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="oleh-oleh" class="section feature-band">
-      <div class="shell feature-grid">
-        <div class="feature-copy">
-          <p class="eyebrow">Favorit Oleh-oleh dari Batam</p>
-          <h2>Order Luti Gendang</h2>
-          <p>Luti Gendang menjadi salah satu produk yang paling ditonjolkan di website asli. Versi static ini mempertahankan fokus tersebut dengan call-to-action yang jelas untuk order dan tanya stok.</p>
-          <a class="button" href="https://wa.me/628117776800?text=Halo%20Mie%20Tarempa,%20saya%20ingin%20order%20Luti%20Gendang" target="_blank" rel="noreferrer">Pesan Luti Gendang</a>
-        </div>
-        <div class="feature-image-wrap">
-          <img class="feature-image" src="./assets/images/luti-gendang-box.png" alt="Box Luti Gendang">
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell">
-      <div class="section-heading">
         <div>
-          <p class="eyebrow">Rasakan Bedanya</p>
-          <h2>Menu lain yang ditampilkan pada website asli</h2>
+          <strong>Focused Expertise</strong>
+          <span>Laboratory equipment, chemicals, and scientific supplies.</span>
         </div>
-        <p>Kontennya tetap setia pada situs sumber, hanya susunannya dibuat lebih modern dan lebih mudah dipindahkan ke hosting statis.</p>
-      </div>
-
-      <div class="card-grid card-grid-three">
-        <article class="food-card compact-card">
-          <img src="./assets/images/sate-terempak.jpg" alt="Sate Terempa'k">
-          <div>
-            <h3>Sate Terempa'k</h3>
-            <p>Menu khas dengan tampilan sederhana dan fokus visual pada hidangan.</p>
-          </div>
-        </article>
-
-        <article class="food-card compact-card">
-          <img src="./assets/images/lempa-terempak.jpg" alt="Lempa Terempa'k">
-          <div>
-            <h3>Lempa Terempa'k</h3>
-            <p>Alternatif menu khas lain yang ikut diperlihatkan sebagai variasi pilihan.</p>
-          </div>
-        </article>
-
-        <article class="food-card compact-card">
-          <img src="./assets/images/sop-ikan-fresh.jpg" alt="Sop Ikan Fresh">
-          <div>
-            <h3>Sop Ikan Fresh</h3>
-            <p>Sajian seafood yang menguatkan identitas kuliner pesisir dalam brand Mie Tarempa.</p>
-          </div>
-        </article>
-      </div>
+        <div>
+          <strong>Customer Support</strong>
+          <span>Responsive communication for product information and inquiries.</span>
+        </div>
+      </aside>
     </section>
 
-    <section id="lokasi" class="section shell location-section">
-      <div class="location-copy panel">
-        <p class="eyebrow">Mie Tarempa Hadir Di</p>
-        <h2>Beberapa titik outlet untuk memudahkan pelanggan</h2>
-        <ul class="location-list">
-          <li>Ruko Royal Sincom Blok D No. 15-16, Batam Center</li>
-          <li>Komp. Graha Mas Blok J No. 10-11, Seipanas Batam</li>
-          <li>Tiban Center Blok L No. 5, 6, 7, Seipanas Batam</li>
-          <li>Jl. D.I. Panjaitan KM 07, Tanjung Pinang</li>
-        </ul>
-        <a class="text-link" href="https://goo.gl/maps/cLewWaAKHUm" target="_blank" rel="noreferrer">Buka peta lokasi</a>
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">Featured Products</p>
+        <h2>Main equipment highlights from the current website</h2>
       </div>
+      <a href="laboratory-equipment/">See all equipment</a>
+    </section>
+    <section class="product-grid">
+      
+            <article class="product-card">
+              <img src="./assets/images/Duo-Fume-Hoods.jpg" alt="Frontier Duo Fume Hoods">
+              <div>
+                <h3>Frontier Duo Fume Hoods</h3>
+                <p>Fume hood with ergonomic design and reliable containment for laboratory safety.</p>
+                <a href="laboratory-equipment/frontier-duo-fume-hoods/">View details</a>
+              </div>
+            </article>
+            
+            <article class="product-card">
+              <img src="./assets/images/Mono-Fume-Hoods.jpg" alt="Frontier Mono Fume Hoods">
+              <div>
+                <h3>Frontier Mono Fume Hoods</h3>
+                <p>Primary containment solution for personnel protection from hazardous chemicals.</p>
+                <a href="laboratory-equipment/frontier-mono-fume-hoods/">View details</a>
+              </div>
+            </article>
+            
+            <article class="product-card">
+              <img src="./assets/images/Freeze-Dryer.jpg" alt="SubliMate Freeze Dryer">
+              <div>
+                <h3>SubliMate Freeze Dryer</h3>
+                <p>Freeze drying solution for dependable laboratory sample preparation workflows.</p>
+                <a href="laboratory-equipment/sublimate-freeze-dryer/">View details</a>
+              </div>
+            </article>
+            
+            <article class="product-card">
+              <img src="./assets/images/Horizontal-Laminar-Flow.jpg" alt="Airstream Horizontal Laminar Flow">
+              <div>
+                <h3>Airstream Horizontal Laminar Flow</h3>
+                <p>Clean bench system designed for sample and process protection.</p>
+                <a href="laboratory-equipment/airstream-horizontal-laminar-flow-clean-benches/">View details</a>
+              </div>
+            </article>
+            
+            <article class="product-card">
+              <img src="./assets/images/Vertical-Laminar-Flow.jpg" alt="Airstream Vertical Laminar Flow">
+              <div>
+                <h3>Airstream Vertical Laminar Flow</h3>
+                <p>Energy-efficient airflow protection for sensitive work areas.</p>
+                <a href="laboratory-equipment/airstream-vertical-laminar-flow-clean-benches/">View details</a>
+              </div>
+            </article>
+            
+            <article class="product-card">
+              <img src="./assets/images/bsc-AC2-D.jpg" alt="Class II Biological Safety Cabinet">
+              <div>
+                <h3>Class II Biological Safety Cabinet</h3>
+                <p>Biological safety cabinet for personnel, product, and environmental protection.</p>
+                <a href="laboratory-equipment/airstream-class-ii-biological-safety-cabinet-d-series/">View details</a>
+              </div>
+            </article>
+            
+    </section>
 
-      <a class="location-map panel" href="https://goo.gl/maps/cLewWaAKHUm" target="_blank" rel="noreferrer">
-        <img src="./assets/images/mietarempa-maps.png" alt="Peta lokasi Mie Tarempa">
+    <section class="category-strip">
+      <a class="category-card" href="laboratory-equipment/">
+        <span>Laboratory Equipment</span>
+        <strong>11 major product pages</strong>
+      </a>
+      <a class="category-card" href="chemicals-and-life-science/">
+        <span>Chemicals and Life Science</span>
+        <strong>Core supply categories</strong>
+      </a>
+      <a class="category-card" href="scientific/">
+        <span>Scientific</span>
+        <strong>Glassware, tools, plastic, porcelain</strong>
       </a>
     </section>
 
-    <section id="order" class="section shell">
-      <div class="cta-panel">
-        <p class="eyebrow">Order / Informasi</p>
-        <h2>Siap pesan atau tanya cabang terdekat?</h2>
-        <p>Kontak utama dari situs asli tetap dipertahankan agar pengunjung GitHub Pages langsung bisa terhubung ke WhatsApp tanpa bergantung pada WordPress.</p>
-        <a class="button" href="https://wa.me/628117776800?text=Halo%20Mie%20Tarempa,%20saya%20mau" target="_blank" rel="noreferrer">Click to WhatsApp: 08117776800</a>
-      </div>
+    <section class="grid-intro split-section">
+      <article class="panel">
+        <p class="eyebrow">Vision</p>
+        <h2>Long-term professional supplier for laboratory needs.</h2>
+        <p>Our vision is to become a long-term professional supplier of laboratory equipment, chemicals, and scientific products in Indonesia, especially in Batam and surrounding areas.</p>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Mission</p>
+        <h2>Excellent service for every customer.</h2>
+        <p>We are confident to provide excellent services to all customers through dependable products and practical support.</p>
+      </article>
     </section>
+    
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <h3>Mie Tarempa</h3>
-        <p>Makanan khas Tarempa - Anambas.</p>
+        <h3>Nikko Indonesia</h3>
+        <p>Chemicals and Laboratory Equipment</p>
+        <p>Kara Industrial Park Blok A No.50 A, Batam - Indonesia, 29463</p>
       </div>
       <div>
-        <h3>Kontak</h3>
-        <p><a href="https://wa.me/628117776800?text=Halo%20Mie%20Tarempa,%20saya%20mau" target="_blank" rel="noreferrer">08117776800</a></p>
-        <p><a href="https://goo.gl/maps/cLewWaAKHUm" target="_blank" rel="noreferrer">Google Maps</a></p>
+        <h3>Contact</h3>
+        <p><a href="tel:+62778466373">+62-778-466373, +62-778-466374</a></p>
+        <p>WhatsApp Office: <a href="https://wa.me/6281278602709">+62812-7860-2709</a></p>
+        <p><a href="mailto:admin@nikko-indonesia.co.id">admin@nikko-indonesia.co.id</a></p>
+        <p><a href="mailto:yana@nikko-indonesia.co.id">yana@nikko-indonesia.co.id</a></p>
       </div>
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="laboratory-equipment/">Laboratory Equipment</a></p>
+        <p><a href="chemicals-and-life-science/">Chemicals and Life Science</a></p>
+        <p><a href="scientific/">Scientific</a></p>
+      </div>
+    </div>
+    <div class="shell footer-bottom">
+      <p>Copyright &copy; 2026 Nikko Indonesia. Rebuilt as a static website for fast hosting and easy maintenance.</p>
     </div>
   </footer>
 
