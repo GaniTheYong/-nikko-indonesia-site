@@ -20,8 +20,7 @@ PHONE = "+62-778-466373, +62-778-466374"
 EMAIL = "yana@nikko-indonesia.co.id"
 ADMIN_EMAIL = "admin@nikko-indonesia.co.id"
 WHATSAPP = "+62812-7860-2709"
-ADMIN_EMAIL = "admin@nikko-indonesia.co.id"
-WHATSAPP = "+62812-7860-2709"
+WHATSAPP_URL = "https://wa.me/6281278602709?text=Halo%20PT%20Nikko%20Indonesia%2C%20"
 ADDRESS = "Kara Industrial Park Blok A No.50 A, Batam - Indonesia, 29463"
 
 NAV_ITEMS = [
@@ -143,7 +142,7 @@ CONTENT_OVERRIDES = {
     <h2>Get in Touch</h2>
     <p>For product information, pricing inquiries, and further assistance, please contact PT. Nikko Indonesia through the details below or use the contact form.</p>
     <p><strong>Address</strong><br>Kara Industrial Park Blok A No.50 A<br>Batam - Indonesia, 29463</p>
-    <p><strong>Phone</strong><br><a href="tel:+62778466373">+62-778-466373</a>, <a href="tel:+62778466374">+62-778-466374</a><br>WhatsApp Office: <a href="https://wa.me/6281278602709">+62812-7860-2709</a></p>
+    <p><strong>Phone</strong><br><a href="tel:+62778466373">+62-778-466373</a>, <a href="tel:+62778466374">+62-778-466374</a><br>WhatsApp Office: <a href="{WHATSAPP_URL}">+62812-7860-2709</a></p>
     <p><strong>Email</strong><br><a href="mailto:admin@nikko-indonesia.co.id">admin@nikko-indonesia.co.id</a><br><a href="mailto:yana@nikko-indonesia.co.id">yana@nikko-indonesia.co.id</a></p>
     <p>We welcome inquiries related to laboratory equipment, chemicals, and scientific products.</p>
     <section class="contact-form-panel">
@@ -325,7 +324,13 @@ def read_page(path: str) -> tuple[str, str]:
     title = html.unescape(strip_tags(title_match.group(1))).strip() if title_match else SITE_NAME
     content = content_match.group(1).strip() if content_match else ""
     if path in CONTENT_OVERRIDES:
-        return title, CONTENT_OVERRIDES[path].strip()
+        return title, (
+            CONTENT_OVERRIDES[path]
+            .replace("{WHATSAPP_URL}", WHATSAPP_URL)
+            .replace("{ADMIN_EMAIL}", ADMIN_EMAIL)
+            .replace("{EMAIL}", EMAIL)
+            .strip()
+        )
     return title, clean_content(content)
 
 
@@ -458,7 +463,7 @@ def layout(title: str, current_path: str, hero_title: str, hero_text: str, body:
       <div>
         <h3>Contact</h3>
         <p><a href="tel:+62778466373">{PHONE}</a></p>
-        <p>WhatsApp Office: <a href="https://wa.me/6281278602709">{WHATSAPP}</a></p>
+        <p>WhatsApp Office: <a href="{WHATSAPP_URL}">{WHATSAPP}</a></p>
         <p><a href="mailto:{ADMIN_EMAIL}">{ADMIN_EMAIL}</a></p>
         <p><a href="mailto:{EMAIL}">{EMAIL}</a></p>
       </div>
@@ -593,7 +598,7 @@ def article_body(title: str, content: str, current_path: str) -> str:
         <ul class="contact-list">
           <li>{ADDRESS}</li>
           <li><a href="tel:+62778466373">{PHONE}</a></li>
-          <li><a href="https://wa.me/6281278602709">{WHATSAPP}</a></li>
+          <li><a href="{WHATSAPP_URL}">{WHATSAPP}</a></li>
           <li><a href="mailto:{ADMIN_EMAIL}">{ADMIN_EMAIL}</a></li>
           <li><a href="mailto:{EMAIL}">{EMAIL}</a></li>
         </ul>
